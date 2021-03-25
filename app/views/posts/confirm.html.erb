@@ -1,0 +1,7 @@
+<h2>ほんとに言っちゃう？</h2>
+<%= form_with(model: @post, url: posts_path, local: true) do |form| %>
+  <%= form.hidden_field :content %>
+  <p><%= @post.content %></p>
+  <%= form.submit "言っちゃう" %>
+  <%= form.submit "言いなおす", name: 'back' %>
+<% end %>

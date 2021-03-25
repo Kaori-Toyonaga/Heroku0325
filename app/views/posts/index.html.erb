@@ -1,0 +1,21 @@
+<h2>今まで何言ったっけ？</h2>
+<p><%= notice %></p>
+<% @posts.each do |post| %>
+<div class="container" class="card" >
+  <div class="row" class="card-body">
+    <h6 class="card-title"><%= post.timestamp %></h6>
+    <p class="card-text"><%= post.content %></p>
+    <p class="card-index"><%= post.user.name %></p>
+    <a class="card-link"><button type="button" class="btn btn-success">
+      <%= link_to '思い出す', post_path(post.id) %>
+    </button></a>
+    <a class="card-link"><button type="button" class="btn btn-warning">
+      <%= link_to "言いなおす", edit_post_path(post.id), data: { confirm: '本当に言いなおす？' } %>
+    </button></a>
+    <a class="card-link"><button type="button" class="btn btn-secondary">
+      <%= link_to '撤回する', post_path(post.id), method: :delete ,data: { confirm: '本当に撤回しますか？' } %>
+    </button></a>
+  </div>
+</div>
+<% end %>
+<p id="blank"><%= link_to 'また何か言ってみる', new_post_path %></p>
