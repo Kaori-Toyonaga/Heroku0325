@@ -23,5 +23,6 @@
 /public/assets
 .byebug_history
 
+#dotenv-rails
 .env
 README.md
